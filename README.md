@@ -1,4 +1,4 @@
-# SQL Sales Analysis Assignment
+# SQL Sales Analysis
 
 This project contains SQL queries for analyzing a sales database.
 
