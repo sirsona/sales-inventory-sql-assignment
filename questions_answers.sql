@@ -1,4 +1,4 @@
--- SALES AND INVENTORY SQL ASSIGNMENT
+``-- SALES AND INVENTORY SQL ASSIGNMENT
 
 -- ====================
 -- QUESTIONS AND ANSWERS
@@ -293,6 +293,7 @@ GROUP BY
     s.product_id;
 
 -- 31. Write a query to find the number of sales made in the month of December 2023.
+-- select each individual date
 SELECT
     s.customer_id,
     count(*) AS sales_month_dec_2023
@@ -302,6 +303,14 @@ WHERE
     s.sale_date BETWEEN '2023-12-01' AND '2023-12-31'
 GROUP BY
     s.customer_id;
+-- find the number
+SELECT
+    COUNT(*) AS sale_dec_2023
+FROM
+    sales s
+WHERE
+    s.sale_date >= '2023-12-01'
+    AND s.sale_date < '2023-12-31'
 
 -- 32. Write a query to find the total amount spent by each customer in 2023 and list the customers in descending order.
 SELECT
@@ -317,16 +326,6 @@ ORDER BY
     total_spent DESC;
 
 -- 33. Write a query to find all products that have been sold but have less than 5 units left in stock.
-SELECT
-    *
-FROM
-    inventory i;
-
-SELECT
-    *
-FROM
-    products p;
-
 SELECT
     p.product_id,
     p.product_name,
