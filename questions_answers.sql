@@ -389,6 +389,17 @@ FROM
     JOIN sales s ON c.customer_id = s.customer_id
 WHERE
     s.sale_date - c.registration_date BETWEEN 0 AND 7;
+-- a better option 
+SELECT
+    c.first_name,
+    c.registration_date,
+    s.sale_date
+FROM
+    customers c
+    JOIN sales s ON c.customer_id = s.customer_id
+WHERE
+    s.sale_date BETWEEN c.registration_date AND c.registration_date + INTERVAL '7 days';
+
 
 -- 36. Write a query to join the `Sales` table with the `Products` table and filter the results by products priced between 100 and 500.
 SELECT
