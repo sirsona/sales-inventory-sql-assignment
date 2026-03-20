@@ -400,7 +400,6 @@ FROM
 WHERE
     s.sale_date BETWEEN c.registration_date AND c.registration_date + INTERVAL '7 days';
 
-
 -- 36. Write a query to join the `Sales` table with the `Products` table and filter the results by products priced between 100 and 500.
 SELECT
     p.product_name,
@@ -408,6 +407,16 @@ SELECT
 FROM
     sales s
     JOIN products p ON s.product_id = p.product_id
+WHERE
+    p.price BETWEEN 100 AND 500;
+
+-- a better option
+SELECT
+    p.product_id,
+    p.product_name,
+    p.price
+FROM
+    products p
 WHERE
     p.price BETWEEN 100 AND 500;
 
