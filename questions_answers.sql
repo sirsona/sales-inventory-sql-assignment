@@ -365,6 +365,19 @@ GROUP BY
     p.product_name
 ORDER BY
     total_sales DESC;
+-- handles NULL values
+SELECT
+    p.product_id,
+    p.product_name,
+    COALESCE(SUM(s.total_amount)) AS total_sales
+FROM
+    products p
+    LEFT JOIN sales s ON s.product_id = p.product_id
+GROUP BY
+    p.product_id,
+    p.product_name
+ORDER BY
+    total_sales DESC;
 
 -- 35. Write a query to find all customers who bought products within 7 days of their registration date.
 SELECT
